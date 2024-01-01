@@ -1,4 +1,4 @@
-# NCF-Archives
+# NCF-RepoSeetory
 
 This is the first prototype of NCF RepoSeetory, an online research repository of Naga College Foundation.
 Technology used here are subdivided into different classifications, such as;
