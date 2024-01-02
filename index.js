@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const fuzzball = require('fuzzball');
+const path = require('path'); // Import the 'path' module
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -13,6 +14,22 @@ const documents = [
 
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: true }));
+
+// Set the response header for JavaScript files
+app.use((req, res, next) => {
+  if (req.url.endsWith('.js')) {
+    res.setHeader('Content-Type', 'application/javascript');
+  }
+  next();
+});
+
+
+app.get('/', (req, res) => {
+  const filePath = path.join(__dirname, 'homepage.html');
+  console.log('File Path:', filePath);
+  res.sendFile(filePath);
+});
+
 
 app.get('/search', (req, res) => {
   const query = req.query.query;
