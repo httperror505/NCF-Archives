@@ -25,7 +25,7 @@ app.use((req, res, next) => {
 
 
 app.get('/', (req, res) => {
-  const filePath = path.join(__dirname, 'homepage.html');
+  const filePath = path.join(__dirname, 'public', 'homepage.html');
   console.log('File Path:', filePath);
   res.sendFile(filePath);
 });
